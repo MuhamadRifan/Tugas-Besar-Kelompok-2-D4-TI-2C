@@ -1,0 +1,60 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{mahasiswa.nama}}">
+
+<ion-content class="padding">
+    <img ng-src="{{mahasiswa.foto}}" style="width: 120px; height: 120px">
+    <h3>Data Mahasiswa :</h3>
+    <p>
+        <font size="2" color="blue" >Nama : {{mahasiswa.nama}}</font>
+    <br>
+        <font size="2" color="blue" >Email : {{mahasiswa.email}}</font>
+    <br>
+        <font size="2" color="blue" >Kelas / Jurusan : {{mahasiswa.kelas}} / {{mahasiswa.jurusan}}</font>
+    </p>
+    <button class="button button-positive button-block" ng-click="editModal()">Update</button>
+</ion-content>
+<script id="edit.html" type="text/ng-template">
+        <div class="modal">
+            <ion-header-bar class="bar-stable">
+                <button class="button button-icon icon ion-close-circled" ng-click="batal()"></button>
+                <h1 class="title"> Update data mahasiswa</h1>
+            </ion-header-bar>
+            <ion-content>
+                <form>
+                    <div class="list">
+                        <label class="item item-input">
+                        <span class="input-label">ID :</span>
+                            <input type="hidden" placeholder="{{mahasiswa.id}}" ng-model="mahasiswa.id" init-from-form>
+                            <p>{{mahasiswa.id}}</p>
+                        </label>
+                        <label class="item item-input">
+                        <span class="input-label">Nama :</span>
+                            <input type="text" placeholder="{{mahasiswa.nama}}" ng-model="mahasiswa.nama" init-from-form>
+                        </label>
+                        <label class="item item-input">
+                        <span class="input-label">Kelas :</span>
+                            <input type="text" placeholder="{{mahasiswa.kelas}}" ng-model="mahasiswa.kelas" init-from-form>
+                        </label>
+                        <label class="item item-input">
+                        <span class="input-label">Jurusan :</span>
+                            <input type="text" placeholder="{{mahasiswa.jurusan}}" ng-model="mahasiswa.jurusan" init-from-form>
+                        </label>
+                        <label class="item item-input">
+                        <span class="input-label">Email :</span>
+                            <input type="text" placeholder="{{mahasiswa.email}}" ng-model="mahasiswa.email" init-from-form>
+                        </label>
+                        <button class="button button-positive button-block" ng-click="edit(mahasiswa);">
+                            Save
+                        </button>
+                    </div>
+                </form>
+        </ion-content>
+        </div>
+</script>
+
+</ion-view>
